@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
+import core.SnakeGameMain;
 import core.GameBoard;
 
 /**
@@ -11,7 +12,7 @@ import core.GameBoard;
  * Initializes and renders the GameBoard where the core mechanics happen.
  */
 public class GameScreen implements Screen {
-    final SnakeGaameMain game;
+    final SnakeGameMain game;
     private GameBoard board;
 
     /**

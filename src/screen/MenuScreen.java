@@ -4,13 +4,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
+import core.SnakeGameMain;
 
 /**
  * Represents the main menu of the game.
  * Allows the user to start the game or exit the application.
  */
 public class MenuScreen implements Screen {
-    final SnakeGaameMain game;
+    final SnakeGameMain game;
 
     /**
      * Constructs the MenuScreen.
