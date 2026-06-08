@@ -16,6 +16,10 @@ public class GameBoard {
 
     private int score;
     private int score2;
+
+    // Game over state and winner message
+    private boolean gameOver;
+    private String winnerMessage;
     
     private final int TILE_SIZE = 20;
     private final int GRID_WIDTH = 32; 
@@ -35,6 +39,9 @@ public class GameBoard {
 
         score = 0;
         score2 = 0;
+
+        gameOver = false;
+        winnerMessage = "";
     }
 
     /**
@@ -42,6 +49,13 @@ public class GameBoard {
      * @param delta Time passed since the last frame.
      */
     public void update(float delta) {
+        if (gameOver) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+                resetGame();
+            }
+            return;
+        }
+
         handleInput();
 
         timer += delta;
@@ -109,17 +123,20 @@ public class GameBoard {
             moveInterval = Math.max(0.05f, moveInterval - 0.005f); 
         }
 
+        boolean snakeDie = false;
+        boolean snake2Die = false;
+
         // Check for self-collision
         for (int i = 1; i < snake.getBody().size(); i++) {
             if (head.equals(snake.getBody().get(i))) {
-                // Game Over logic will go here
+                snakeDie = true;
                 System.out.println("Snake collided with itself!");
             }
         }
 
         for (int i = 1; i < snake2.getBody().size(); i++) {
             if (head2.equals(snake2.getBody().get(i))) {
-                // Game Over logic will go here
+                snake2Die = true;
                 System.out.println("Snake 2 collided with itself!");
             }
         }
@@ -127,16 +144,39 @@ public class GameBoard {
         // Check for collision between the two snakes
         for (Vector2 part : snake.getBody()) {
             if (head2.equals(part)) {
-                // Game Over logic will go here
+                snake2Die = true;
                 System.out.println("Snake 2 collided with Snake 1!");
             }
         }
         for (Vector2 part : snake2.getBody()) {
             if (head.equals(part)) {
-                // Game Over logic will go here
+                snakeDie = true;
                 System.out.println("Snake 1 collided with Snake 2!");
             }
         }
+
+        // Determine game over state and winner
+        if (snakeDie && snake2Die) {
+            gameOver = true;
+            winnerMessage = "It's a tie!";
+        } else if (snakeDie) {
+            gameOver = true;
+            winnerMessage = "Player 2 wins!";
+        } else if (snake2Die) {
+            gameOver = true;
+            winnerMessage = "Player 1 wins!";
+        }
+
+    }
+
+    private void resetGame() {
+        snake = new Snake(10, 10, new Vector2(1, 0)); // Start moving right
+        snake2 = new Snake(20, 10, new Vector2(-1, 0)); // Start moving left
+        score = 0;
+        score2 = 0;
+        moveInterval = 0.15f;
+        gameOver = false;
+        winnerMessage = "";
     }
 
     private void respawnFood() {
@@ -181,5 +221,13 @@ public class GameBoard {
 
     public int getScore2() {
         return score2;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public String getWinnerMessage() {
+        return winnerMessage;
     }
 }

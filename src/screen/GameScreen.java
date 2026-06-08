@@ -30,6 +30,12 @@ public class GameScreen implements Screen {
 
         board.update(delta);
 
+        if (board.isGameOver()) {
+            game.setScreen(new GameOverScreen(game, board));
+            dispose();
+            return;
+        }
+
         game.shapeRenderer.begin(com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled);
         board.render(game.shapeRenderer);
         game.shapeRenderer.end();
