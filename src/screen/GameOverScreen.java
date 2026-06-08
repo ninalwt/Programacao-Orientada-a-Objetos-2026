@@ -34,8 +34,9 @@ public class GameOverScreen implements Screen {
         if (winnerMessage.isEmpty()) {
             winnerMessage = "Game Over!";
         }
+
         game.font.draw(game.batch, winnerMessage, 200, 300);
-        game.font.draw(game.batch, "Final Score: " + board.getScore(), 200, 250);
+        game.font.draw(game.batch, "Final Score: " + (board.getScore() + board.getScore2()), 200, 250);
         game.font.draw(game.batch, "Press R to Restart or M for Menu", 200, 200);
         game.batch.end();
 
