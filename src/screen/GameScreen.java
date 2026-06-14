@@ -40,9 +40,13 @@ public class GameScreen implements Screen {
         board.render(game.shapeRenderer);
         game.shapeRenderer.end();
 
+        // renders the score panel
         game.batch.begin();
-        game.font.draw(game.batch, "Score: " + board.getScore(), 10, 470);
-        game.font.draw(game.batch, "Press M to return to Menu", 10, 450);
+        game.font.draw(game.batch, "Score (Player 1): " + board.getScore(), 10, 470);
+        String textP2 = "Score (Player 2): " + board.getScore2();
+        int rightTextLength = textP2.length() * 9; // ~9 pixels per character
+        game.font.draw(game.batch, textP2, 640 - rightTextLength, 470);
+        game.font.draw(game.batch, "Press M to return to Menu", 230, 30);
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {

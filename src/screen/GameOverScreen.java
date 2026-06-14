@@ -36,7 +36,13 @@ public class GameOverScreen implements Screen {
         }
 
         game.font.draw(game.batch, winnerMessage, 200, 300);
-        game.font.draw(game.batch, "Final Score: " + (board.getScore() + board.getScore2()), 200, 250);
+
+
+        game.font.draw(game.batch, "Player 1 (Green): " + board.getScore() + " points", 200, 250);
+
+        game.font.draw(game.batch, "Player 2 (Blue): " + board.getScore2() + " points", 200, 230);
+
+        
         game.font.draw(game.batch, "Press R to Restart or M for Menu", 200, 200);
         game.batch.end();
 

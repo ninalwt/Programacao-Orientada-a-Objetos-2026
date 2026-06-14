@@ -12,7 +12,7 @@ public class DesktopLauncher {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
         
         // Sets the frame rate and window properties
-        config.setForegroundFPS(60);
+        config.setForegroundFPS(20);
         config.setTitle("SnakeGame");
         config.setWindowedMode(640, 480);
         

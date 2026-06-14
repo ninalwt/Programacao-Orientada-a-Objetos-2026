@@ -158,7 +158,17 @@ public class GameBoard {
         // Determine game over state and winner
         if (snakeDie && snake2Die) {
             gameOver = true;
-            winnerMessage = "It's a tie!";
+
+            // if the snakes collide, the winner is the one with the biggest score
+            if (score > score2) {
+                winnerMessage = "Player 1 wins!";
+            } else if (score2 > score) { 
+                winnerMessage = "Player 2 wins!";
+            } else {
+                winnerMessage = "It's a tie!";
+            }
+        
+        // if the snake dies alone, the winner is the one alive
         } else if (snakeDie) {
             gameOver = true;
             winnerMessage = "Player 2 wins!";

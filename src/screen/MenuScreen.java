@@ -28,6 +28,7 @@ public class MenuScreen implements Screen {
         game.batch.begin();
         game.font.draw(game.batch, "SNAKE GAME", 250, 350);
         game.font.draw(game.batch, "Press ENTER to Play", 230, 250);
+        game.font.draw(game.batch, "Press I to Instructions Screen", 200, 225);
         game.font.draw(game.batch, "Press ESC to Exit", 240, 200);
         game.batch.end();
 
@@ -36,6 +37,12 @@ public class MenuScreen implements Screen {
             dispose();
         }
         
+        // instructions screen
+        if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
+            game.setScreen(new InstructionsScreen(game));
+            dispose();
+        }
+
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             Gdx.app.exit();
         }
