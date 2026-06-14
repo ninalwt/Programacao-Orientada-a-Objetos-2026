@@ -5,7 +5,7 @@ import java.io.Serializable;
 /*
  * Represents an entry on high score entry
  */
-public class HighScoreEntry {
+public class HighScoreEntry implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String name;

@@ -111,16 +111,17 @@ public class GameBoard {
         if (head.equals(food.getPosition())) {
             snake.grow();
             score += 10;
-            food.respawn(GRID_WIDTH, GRID_HEIGHT, snake.getBody());
-            // Speeds up the game slightly
-            moveInterval = Math.max(0.05f, moveInterval - 0.005f); 
+            respawnFood();
+            //food.respawn(GRID_WIDTH, GRID_HEIGHT, snake.getBody());
+            //moveInterval = Math.max(0.05f, moveInterval - 0.005f); 
         }
 
         if (head2.equals(food.getPosition())) {
             snake2.grow();
             score2 += 10;
-            food.respawn(GRID_WIDTH, GRID_HEIGHT, snake2.getBody());
-            moveInterval = Math.max(0.05f, moveInterval - 0.005f); 
+            respawnFood();
+            //food.respawn(GRID_WIDTH, GRID_HEIGHT, snake2.getBody());
+            //moveInterval = Math.max(0.05f, moveInterval - 0.005f); 
         }
 
         boolean snakeDie = false;
