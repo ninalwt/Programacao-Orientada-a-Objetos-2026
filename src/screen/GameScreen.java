@@ -21,7 +21,7 @@ public class GameScreen implements Screen {
      */
     public GameScreen(SnakeGameMain game) {
         this.game = game;
-        this.board = new GameBoard();
+        this.board = new GameBoard(game.soundManager);
     }
 
     @Override

@@ -14,12 +14,14 @@ public class SnakeGameMain extends Game {
     public SpriteBatch batch;
     public ShapeRenderer shapeRenderer;
     public BitmapFont font;
+    public SoundManager soundManager;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
         font = new BitmapFont(); 
+        soundManager = new SoundManager();
         
         this.setScreen(new MenuScreen(this));
     }
@@ -34,5 +36,6 @@ public class SnakeGameMain extends Game {
         batch.dispose();
         shapeRenderer.dispose();
         font.dispose();
+        soundManager.dispose();
     }
 }

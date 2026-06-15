@@ -3,6 +3,7 @@ package core;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
+
 /**
  * The entry point for the desktop version of the game.
  * This file contains the main method required by Java to run the application.

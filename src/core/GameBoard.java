@@ -28,10 +28,14 @@ public class GameBoard {
     private float timer = 0;
     private float moveInterval = 0.15f; 
 
+    private SoundManager soundManager;
+
     /**
      * Initializes the game board, spawning the snake and initial food.
      */
-    public GameBoard() {
+    public GameBoard(SoundManager soundManager) {
+        this.soundManager = soundManager;
+
         snake = new Snake(10, 10, new Vector2(1, 0)); // Start moving right
         snake2 = new Snake(20, 10, new Vector2(-1, 0)); // Start moving left
 
@@ -111,6 +115,7 @@ public class GameBoard {
         if (head.equals(food.getPosition())) {
             snake.grow();
             score += 10;
+            soundManager.playCollectSound();
             respawnFood();
             //food.respawn(GRID_WIDTH, GRID_HEIGHT, snake.getBody());
             //moveInterval = Math.max(0.05f, moveInterval - 0.005f); 
@@ -119,6 +124,7 @@ public class GameBoard {
         if (head2.equals(food.getPosition())) {
             snake2.grow();
             score2 += 10;
+            soundManager.playCollectSound();
             respawnFood();
             //food.respawn(GRID_WIDTH, GRID_HEIGHT, snake2.getBody());
             //moveInterval = Math.max(0.05f, moveInterval - 0.005f); 
@@ -159,6 +165,7 @@ public class GameBoard {
         // Determine game over state and winner
         if (snakeDie && snake2Die) {
             gameOver = true;
+            soundManager.playDeathSound();
 
             // if the snakes collide, the winner is the one with the biggest score
             if (score > score2) {
