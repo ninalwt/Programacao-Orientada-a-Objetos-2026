@@ -3,11 +3,12 @@ package screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 import core.SnakeGameMain;
+import core.ColorManager;
 import core.GameBoard;
 import core.ScoreManager;
+import core.TextHelper;
 
 /**
  * Represents the Game Over screen displayed when the game ends.
@@ -32,7 +33,9 @@ public class GameOverScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(0, 0, 0, 1);
+        // background
+        ScreenUtils.clear(ColorManager.GB_LIGHTEST.r, ColorManager.GB_LIGHTEST.g, ColorManager.GB_LIGHTEST.b, 1);
+
 
         // determines winner score
         String winnerMessage = board.getWinnerMessage();
@@ -50,7 +53,7 @@ public class GameOverScreen implements Screen {
             winnerName = "Tie";
         }
         
-        boolean isRecorde = scoreManager.isHighScore(winnerScore);
+        boolean isItAHighScore = scoreManager.isHighScore(winnerScore);
 
 
         // main message
@@ -60,26 +63,27 @@ public class GameOverScreen implements Screen {
             winnerMessage = "Game Over!";
         }
 
-        game.font.draw(game.batch, winnerMessage, 260, 380);
+        // Draw centered text using TextHelper
+        game.font.setColor(ColorManager.GB_DARKEST);
+        TextHelper.drawCentered(game.batch, game.font, winnerMessage, 380);
+        TextHelper.drawCentered(game.batch, game.font, "Player 1 - Green: " + board.getScore() + " points", 320);
+        TextHelper.drawCentered(game.batch, game.font, "Player 2 - Blue: " + board.getScore2() + " points", 290);
+        TextHelper.drawCentered(game.batch, game.font, "---------------------", 260);
 
+        // text based if it is a record or isn't
+        if (isItAHighScore && !winnerName.equals("Tie")) {
 
-        game.font.draw(game.batch, "Player 1 (Green): " + board.getScore() + " points", 220, 320);
-        game.font.draw(game.batch, "Player 2 (Blue): " + board.getScore2() + " points", 220, 290);
-        game.font.draw(game.batch, "---------------------", 240, 260);
+            TextHelper.drawCentered(game.batch, game.font, "( NEW HIGH SCORE! (", 230);
 
-        // text based if it is a record or isnt
-        if (isRecorde && !winnerName.equals("Tie")) {
-            game.font.setColor(Color.YELLOW);
-            game.font.draw(game.batch, "★ NEW HIGH SCORE! ★", 245, 230);
-            game.font.setColor(Color.CYAN);
-            game.font.draw(game.batch, "Press N to save your name!", 235, 195);
-            game.font.setColor(Color.WHITE);
-            game.font.draw(game.batch, "Press R to Restart", 255, 160);
-            game.font.draw(game.batch, "Press M for Menu", 260, 135);
+            TextHelper.drawCentered(game.batch, game.font, ") Press N to save your name! ) ", 195);
+
+            TextHelper.drawCentered(game.batch, game.font, "Press R to Restart", 160);
+            TextHelper.drawCentered(game.batch, game.font, "Press M for Menu", 135);
         } else {
-            game.font.draw(game.batch, "Press R to Restart", 255, 200);
-            game.font.draw(game.batch, "Press M for Menu", 260, 170);
+            TextHelper.drawCentered(game.batch, game.font, "Press R to Restart", 200);
+            TextHelper.drawCentered(game.batch, game.font, "Press M for Menu", 170);
         }
+
 
         game.batch.end();
 
@@ -89,7 +93,7 @@ public class GameOverScreen implements Screen {
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {
             game.setScreen(new MenuScreen(game));
             dispose();
-        } else if (isRecorde && !winnerName.equals("Tie") && Gdx.input.isKeyJustPressed(Input.Keys.N)) {
+        } else if (isItAHighScore && !winnerName.equals("Tie") && Gdx.input.isKeyJustPressed(Input.Keys.N)) {
             game.setScreen(new NewHighScoreScreen(game, winnerScore, winnerName));
             dispose();
         }

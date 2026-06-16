@@ -214,19 +214,43 @@ public class GameBoard {
      * @param shapeRenderer The rendering tool.
      */
     public void render(ShapeRenderer shapeRenderer) {
-        shapeRenderer.setColor(1, 0, 0, 1); // Red food
+        shapeRenderer.setColor(ColorManager.GB_DARKEST); // food
         shapeRenderer.rect(food.getPosition().x * TILE_SIZE, food.getPosition().y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
-        shapeRenderer.setColor(0, 1, 0, 1); // Green snake
+        shapeRenderer.setColor(ColorManager.GB_DARK); // solid snake - player 1
         for (Vector2 part : snake.getBody()) {
             shapeRenderer.rect(part.x * TILE_SIZE, part.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
         }
 
-        shapeRenderer.setColor(0, 0, 1, 1); // Blue snake
-        for (Vector2 part : snake2.getBody()) {
-            shapeRenderer.rect(part.x * TILE_SIZE, part.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-        }
+        // dithering effect for snake 2 
+        for (int i = 0; i < snake2.getBody().size(); i++) {
+            Vector2 part = snake2.getBody().get(i);
+            float x = part.x * TILE_SIZE;
+            float y = part.y * TILE_SIZE;
+            
+            
+            float pixelSize = 4; 
+            int cols = (int)(TILE_SIZE / pixelSize);
+            int rows = (int)(TILE_SIZE / pixelSize);
+            
+            for (int row = 0; row < rows; row++) {
+                for (int col = 0; col < cols; col++) {
 
+                    if ((row + col + i) % 2 == 0) {
+                        shapeRenderer.setColor(ColorManager.GB_DARK); 
+                    } else {
+                        shapeRenderer.setColor(ColorManager.GB_LIGHT); 
+                    }
+                    
+                    shapeRenderer.rect(
+                        x + col * pixelSize, 
+                        y + row * pixelSize, 
+                        pixelSize, 
+                        pixelSize
+                    );
+                }
+            }
+        }
     }
 
     /**

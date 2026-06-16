@@ -5,8 +5,9 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
 import core.SnakeGameMain;
+import core.ColorManager;
 import core.GameBoard;
-
+import core.TextHelper;
 /**
  * Represents the main gameplay screen.
  * Initializes and renders the GameBoard where the core mechanics happen.
@@ -26,7 +27,9 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(0, 0, 0, 1);
+        // background
+        ScreenUtils.clear(ColorManager.GB_LIGHTEST.r, ColorManager.GB_LIGHTEST.g, ColorManager.GB_LIGHTEST.b, 1);
+
 
         board.update(delta);
 
@@ -42,11 +45,9 @@ public class GameScreen implements Screen {
 
         // renders the score panel
         game.batch.begin();
-        game.font.draw(game.batch, "Score (Player 1): " + board.getScore(), 10, 470);
-        String textP2 = "Score (Player 2): " + board.getScore2();
-        int rightTextLength = textP2.length() * 9; // ~9 pixels per character
-        game.font.draw(game.batch, textP2, 640 - rightTextLength, 470);
-        game.font.draw(game.batch, "Press M to return to Menu", 230, 30);
+        TextHelper.drawLeft(game.batch, game.font, "Player 1: " + board.getScore(), 470);
+        TextHelper.drawRight(game.batch, game.font, "Player 2: " + board.getScore2(), 470);
+        TextHelper.drawCentered(game.batch, game.font, "Press M for Menu", 30);
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.M)) {

@@ -3,9 +3,10 @@ package screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 import core.SnakeGameMain;
+import core.TextHelper;
+import core.ColorManager;
 import core.ScoreManager;
 
 /*
@@ -35,7 +36,8 @@ public class NewHighScoreScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(0.1f, 0.1f, 0.2f, 1);
+        // background
+        ScreenUtils.clear(ColorManager.GB_LIGHTEST.r, ColorManager.GB_LIGHTEST.g, ColorManager.GB_LIGHTEST.b, 1);
         
         // blinks the cursor
         blinkTimer += delta;
@@ -45,31 +47,29 @@ public class NewHighScoreScreen implements Screen {
         }
         
         game.batch.begin();
-        game.font.setColor(Color.YELLOW);
-        game.font.draw(game.batch, "NEW HIGH SCORE!", 240, 420);
+        game.font.setColor(ColorManager.GB_DARKEST);
+        TextHelper.drawCentered(game.batch, game.font, "~ NEW HIGH SCORE!", 370);
         
-        game.font.setColor(Color.WHITE); 
-        game.font.draw(game.batch, "Your score: " + finalScore + " points", 250, 370);
-        game.font.draw(game.batch, "Winner: " + winner, 280, 340);
+        TextHelper.drawCentered(game.batch, game.font, "Your score: " + finalScore + " points", 320);
+        TextHelper.drawCentered(game.batch, game.font, "Winner: : " + winner, 290);
+
         
         // Instructions
-        game.font.setColor(Color.CYAN);
-        game.font.draw(game.batch, "ENTER YOUR NAME (3 LETTERS)", 220, 290);
+        TextHelper.drawCentered(game.batch, game.font, "ENTER YOUR NAME - 3 LETTERS:", 240);
+
         
         // name blinking while writing
-        game.font.setColor(Color.GREEN);
         String displayName = name.toString();
         if (displayName.length() < 3 && showCursor) {
             displayName += "_";
         }
         
         // name in the middle of the screen
-        float textWidth = displayName.length() * 12; // Aproximação
-        float x = (640 - textWidth) / 2;
-        game.font.draw(game.batch, displayName, x, 240);
+        game.font.setColor(ColorManager.GB_DARK);
+        TextHelper.drawCentered(game.batch, game.font, displayName, 190);
         
-        game.font.setColor(Color.GRAY);
-        game.font.draw(game.batch, "A-Z keys | BACKSPACE | ENTER to save", 190, 160);
+        game.font.setColor(ColorManager.GB_DARKEST);
+        TextHelper.drawCentered(game.batch, game.font, "A-Z keys - BACKSPACE - ENTER to save", 140);
         
         game.batch.end();
         
