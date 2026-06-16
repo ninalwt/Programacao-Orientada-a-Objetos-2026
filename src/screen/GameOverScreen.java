@@ -66,8 +66,8 @@ public class GameOverScreen implements Screen {
         // Draw centered text using TextHelper
         game.font.setColor(ColorManager.GB_DARKEST);
         TextHelper.drawCentered(game.batch, game.font, winnerMessage, 380);
-        TextHelper.drawCentered(game.batch, game.font, "Player 1 - Green: " + board.getScore() + " points", 320);
-        TextHelper.drawCentered(game.batch, game.font, "Player 2 - Blue: " + board.getScore2() + " points", 290);
+        TextHelper.drawCentered(game.batch, game.font, "Player 1: " + board.getScore() + " points", 320);
+        TextHelper.drawCentered(game.batch, game.font, "Player 2: " + board.getScore2() + " points", 290);
         TextHelper.drawCentered(game.batch, game.font, "---------------------", 260);
 
         // text based if it is a record or isn't

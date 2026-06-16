@@ -3,6 +3,7 @@ package core;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -36,10 +37,15 @@ public class GameBoard {
     public GameBoard(SoundManager soundManager) {
         this.soundManager = soundManager;
 
-        snake = new Snake(10, 10, new Vector2(1, 0)); // Start moving right
-        snake2 = new Snake(20, 10, new Vector2(-1, 0)); // Start moving left
+        snake = new Snake(1, 12, new Vector2(1, 0)); // Start moving right
+        snake.getBody().add(new Vector2(0,12)); // starting tail of snake 1
 
-        food = new Food(20, 10);
+        snake2 = new Snake(31, 13, new Vector2(-1, 0)); // Start moving left
+        snake2.getBody().add(new Vector2(32,13)); // starting tail of snake 2
+        
+        float foodX = MathUtils.random(10, 22);
+        float foodY = MathUtils.random(7, 17);
+        food = new Food(foodX, foodY);
 
         score = 0;
         score2 = 0;
