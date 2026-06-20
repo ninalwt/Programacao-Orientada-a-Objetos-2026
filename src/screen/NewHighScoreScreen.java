@@ -13,16 +13,24 @@ import core.ScoreManager;
  * Screen to insert a name when hits a new record 
  */
 public class NewHighScoreScreen implements Screen {
+    // Reference to the main game instance and the score manager
     final SnakeGameMain game;
     private ScoreManager scoreManager;
+    
+    // Data for the new high score entry
     private int finalScore;
     private String winner;
-
     private StringBuilder name;
-     private boolean finished;
+    private boolean finished;
     private float blinkTimer;
     private boolean showCursor;
     
+    /**
+     * Constructs the NewHighScoreScreen.
+     * @param game The main game instance.
+     * @param finalScore The final score achieved.
+     * @param winner The name of the winner.
+     */
     public NewHighScoreScreen(SnakeGameMain game, int finalScore, String winner) {
         this.game = game;
         this.scoreManager = new ScoreManager();
@@ -34,6 +42,10 @@ public class NewHighScoreScreen implements Screen {
         this.showCursor = true;
     }
 
+    /**
+     * Renders the new high score screen.
+     * @param delta The time in seconds since the last frame.
+     */
     @Override
     public void render(float delta) {
         // background
@@ -81,6 +93,9 @@ public class NewHighScoreScreen implements Screen {
         }
     }
     
+    /**
+     * Handles input for name entry.
+     */
     private void handleInput() {
         // backspace to delete
         if (Gdx.input.isKeyJustPressed(Input.Keys.BACKSPACE) && name.length() > 0) {

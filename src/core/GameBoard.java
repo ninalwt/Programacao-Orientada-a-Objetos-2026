@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector2;
  * Handles the game logic, grid boundaries, collisions, and entity management.
  */
 public class GameBoard {
+
     private Snake snake;
     private Snake snake2;
 
@@ -22,10 +23,12 @@ public class GameBoard {
     private boolean gameOver;
     private String winnerMessage;
     
+    // Constants for grid and tile sizes
     private final int TILE_SIZE = 20;
     private final int GRID_WIDTH = 32; 
     private final int GRID_HEIGHT = 24; 
     
+    // Timer for controlling snake movement speed
     private float timer = 0;
     private float moveInterval = 0.15f; 
 
@@ -33,6 +36,7 @@ public class GameBoard {
 
     /**
      * Initializes the game board, spawning the snake and initial food.
+     * @param soundManager The sound manager to handle game sounds.
      */
     public GameBoard(SoundManager soundManager) {
         this.soundManager = soundManager;
@@ -101,6 +105,7 @@ public class GameBoard {
 
     /**
      * Ensures the snake wraps around the screen edges.
+     * @param snake The snake to check for wrap-around behavior.
      */
     private void checkWrapAround(Snake snake) {
         Vector2 head = snake.getBody().getFirst();
@@ -112,6 +117,7 @@ public class GameBoard {
 
     /**
      * Checks for interactions between the snake, food, and its own body.
+     * Sets game over state and winner message if necessary.
      */
     private void checkCollisions() {
         Vector2 head = snake.getBody().getFirst();
@@ -172,6 +178,7 @@ public class GameBoard {
         if (snakeDie && snake2Die) {
             gameOver = true;
             soundManager.playDeathSound();
+            pause(1000); // Pause for 1 second to let the sound play 
 
             // if the snakes collide, the winner is the one with the biggest score
             if (score > score2) {
@@ -193,6 +200,9 @@ public class GameBoard {
 
     }
 
+    /**
+     * Resets the game state to its initial values.
+     */
     private void resetGame() {
         snake = new Snake(10, 10, new Vector2(1, 0)); // Start moving right
         snake2 = new Snake(20, 10, new Vector2(-1, 0)); // Start moving left
@@ -203,6 +213,9 @@ public class GameBoard {
         winnerMessage = "";
     }
 
+    /**
+     * Respawns the food at a random location that doesn't overlap with either snake.
+     */
     private void respawnFood() {
         // Combine both snakes' bodies to ensure food doesn't spawn on either snake
         java.util.LinkedList<Vector2> combinedBodies = new java.util.LinkedList<>();
@@ -267,15 +280,39 @@ public class GameBoard {
         return score;
     }
 
+    /**
+     * Gets the current player 2 score.
+     * @return The score of player 2.
+     */
     public int getScore2() {
         return score2;
     }
 
+    /**
+     * Checks if the game is over.
+     * @return True if the game has ended, false otherwise.
+     */
     public boolean isGameOver() {
         return gameOver;
     }
 
+    /**
+     * Gets the winner message after the game ends.
+     * @return The winner message string.
+     */
     public String getWinnerMessage() {
         return winnerMessage;
+    }
+
+    /**
+     * Pauses the game for a specified duration.
+     * @param milliseconds The duration to pause in milliseconds.
+     */
+    private void pause(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }

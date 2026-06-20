@@ -48,6 +48,15 @@ public class SoundManager {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
+
+        try {
+            deathFx = Gdx.audio.newSound(Gdx.files.internal("sounds/death.mp3"));
+            System.out.println("✓ Sound loaded!");
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
+        
     } 
 
     // plays the sound fx when the snake eats
