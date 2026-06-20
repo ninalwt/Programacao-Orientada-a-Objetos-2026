@@ -5,6 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
 import core.SnakeGameMain;
+import core.TextHelper;
+import core.ColorManager;
 
 /**
  * Represents the main menu of the game.
@@ -23,12 +25,21 @@ public class MenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(0, 0, 0.2f, 1);
+        // background
+        ScreenUtils.clear(ColorManager.GB_LIGHTEST.r, ColorManager.GB_LIGHTEST.g, ColorManager.GB_LIGHTEST.b, 1);
 
         game.batch.begin();
-        game.font.draw(game.batch, "SNAKE GAME", 250, 350);
-        game.font.draw(game.batch, "Press ENTER to Play", 230, 250);
-        game.font.draw(game.batch, "Press ESC to Exit", 240, 200);
+        
+        game.font.setColor(ColorManager.GB_DARKEST);
+        TextHelper.drawCentered(game.batch, game.font, "SNAKE GAME", 350);
+        TextHelper.drawCentered(game.batch, game.font, "Press ENTER to Play", 280);
+        TextHelper.drawCentered(game.batch, game.font, "Press I for Instructions", 255);
+        TextHelper.drawCentered(game.batch, game.font, "Press H for High Scores", 230);
+        TextHelper.drawCentered(game.batch, game.font, "Press ESC to Exit", 205);
+
+        TextHelper.drawCentered(game.batch, game.font, "Natalia - Nina - Thiago", 75);
+        TextHelper.drawCentered(game.batch, game.font, "2026 ©", 50);
+        
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
@@ -36,6 +47,18 @@ public class MenuScreen implements Screen {
             dispose();
         }
         
+        // instructions screen
+        if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
+            game.setScreen(new InstructionsScreen(game));
+            dispose();
+        }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.H)) {
+            game.setScreen(new HighScoreScreen(game));
+            dispose();
+        }
+
+
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             Gdx.app.exit();
         }

@@ -16,11 +16,12 @@ public class Snake {
      * Initializes the snake at a specific starting position.
      * @param startX Initial X coordinate on the grid.
      * @param startY Initial Y coordinate on the grid.
+     * @param initialDirection The initial direction vector.
      */
-    public Snake(float startX, float startY) {
+    public Snake(float startX, float startY, Vector2 initialDirection) {
         body = new LinkedList<>();
         body.add(new Vector2(startX, startY));
-        direction = new Vector2(1, 0); 
+        direction = initialDirection;
         justAte = false;
     }
 

@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import screen.MenuScreen;
+import com.badlogic.gdx.Gdx;
+
 
 /**
  * Main entry point for the LibGDX game.
@@ -14,12 +16,14 @@ public class SnakeGameMain extends Game {
     public SpriteBatch batch;
     public ShapeRenderer shapeRenderer;
     public BitmapFont font;
+    public SoundManager soundManager;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         shapeRenderer = new ShapeRenderer();
-        font = new BitmapFont(); 
+        font = new BitmapFont(Gdx.files.internal("assets/font/font.fnt")); 
+        soundManager = new SoundManager();
         
         this.setScreen(new MenuScreen(this));
     }
@@ -34,5 +38,6 @@ public class SnakeGameMain extends Game {
         batch.dispose();
         shapeRenderer.dispose();
         font.dispose();
+        soundManager.dispose();
     }
 }
