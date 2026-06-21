@@ -1,5 +1,10 @@
 plugins {
     id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'core.DesktopLauncher' // Tells Gradle where the main class is located
 }
 
 repositories {
@@ -20,6 +25,15 @@ dependencies {
     testImplementation 'org.junit.platform:junit-platform-launcher'
     testImplementation 'com.badlogicgames.gdx:gdx-backend-headless:1.12.1'
     testImplementation 'com.badlogicgames.gdx:gdx-platform:1.12.1:natives-desktop'
+}
+
+sourceSets {
+    main {
+        // Tells Gradle where to find the source code for the main application
+        resources {
+            srcDirs = ['assets'] 
+        }
+    }
 }
 
 test {

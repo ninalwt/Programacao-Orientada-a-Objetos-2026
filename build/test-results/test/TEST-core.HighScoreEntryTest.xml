@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="core.HighScoreEntryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-06-21T15:31:01.228Z" hostname="DESKTOP-0OV9J5N" time="0.016">
+<testsuite name="core.HighScoreEntryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-06-21T22:42:09.357Z" hostname="sero" time="0.029">
   <properties/>
-  <testcase name="toString should pad the score field to a fixed width" classname="core.HighScoreEntryTest" time="0.002"/>
+  <testcase name="toString should pad the score field to a fixed width" classname="core.HighScoreEntryTest" time="0.01"/>
   <testcase name="setName should update the stored name" classname="core.HighScoreEntryTest" time="0.001"/>
-  <testcase name="setScore should update the stored score" classname="core.HighScoreEntryTest" time="0.003"/>
-  <testcase name="Constructor should correctly set name, score, and winner" classname="core.HighScoreEntryTest" time="0.004"/>
-  <testcase name="toString should contain name, score, and winner information" classname="core.HighScoreEntryTest" time="0.002"/>
+  <testcase name="setScore should update the stored score" classname="core.HighScoreEntryTest" time="0.001"/>
+  <testcase name="Constructor should correctly set name, score, and winner" classname="core.HighScoreEntryTest" time="0.005"/>
+  <testcase name="toString should contain name, score, and winner information" classname="core.HighScoreEntryTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

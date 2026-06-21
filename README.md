@@ -1,6 +1,6 @@
 # 🐍 Multiplayer Snake Game
 
-**Discipline:** SCC0504 - Object-Oriented Programming  
+**Discipline:** SCC0204 - Object-Oriented Programming  
 **Technology:** Java + LibGDX (Desktop Target)
 
 ## Group Identification
@@ -13,7 +13,7 @@
 ---
 
 ## 1. Requirements
-The project fulfills all the core requirements proposed in the assignment description, alongside custom additions tailored by our team:
+The project fulfills the following requirements proposed in the assignment description, alongside custom additions tailored by our team:
 * **Game Setup:** LibGDX desktop project featuring a Main Menu, Instructions screen, and dynamic High Score screens.
 * **Core Mechanics:** Two snakes move on a grid. They grow longer and speed up slightly when eating randomly spawned food.
 * **Wrap-around Walls:** Snakes exiting one side of the screen seamlessly re-enter from the opposite side.
@@ -55,9 +55,9 @@ The project uses the Gradle wrapper, making it plug-and-play without manual IDE 
 
 **Step-by-Step Guide:**
 1. Clone the repository and access the folder:
-   `git clone <repository_url>`
-   `cd <project_folder>`
-2. **To Run the Game:** Open your terminal in the root folder and execute:
+   `git clone https://github.com/ninalwt/Programacao-Orientada-a-Objetos-2026`
+   `cd Programacao-Orientada-a-Objetos-2026`
+2. **To Run the Game:** Open your terminal in the "Programacao-Orientada-a-Objetos-2026" folder and execute:
    * **Linux/Mac:** `./gradlew run`
    * **Windows:** `gradlew.bat run`
 3. **To Run the Automated Tests:** In the same terminal, execute:
@@ -68,9 +68,7 @@ The project uses the Gradle wrapper, making it plug-and-play without manual IDE 
 
 ## 7. Problems
 During development, we encountered and solved the following main challenges:
-1. **Gradle Build Conflicts:** Initially, Gradle attempted to compile our JUnit test files into the main desktop artifact, causing build failures. We solved this by properly configuring the `sourceSets` in `build.gradle` to isolate `main` and `test` directories.
-2. **Asset Path Resolution:** When running the game via certain IDEs, the working directory couldn't find the `assets/` folder, crashing the game when loading audio. We solved this by explicitly declaring the `resources` directory in the Gradle configuration, ensuring cross-platform compatibility.
-3. **Audio Freezing the Render Thread:** We originally used `Thread.sleep()` to wait for the death sound effect to finish before changing to the Game Over screen. This caused the LibGDX render thread to freeze. We fixed it by removing the sleep method and placing the `soundManager.playDeathSound()` call inside the constructor of the `GameOverScreen`, allowing the asynchronous audio engine to play the sound perfectly while the new screen renders.
+1. **Audio Freezing the Render Thread:** We originally used `Thread.sleep()` to wait for the death sound effect to finish before changing to the Game Over screen. This caused the LibGDX render thread to freeze. We fixed it by removing the sleep method and placing the `soundManager.playDeathSound()` call inside the constructor of the `GameOverScreen`, allowing the asynchronous audio engine to play the sound perfectly while the new screen renders.
 
 ## 8. Comments
-Developing this project was a highly rewarding experience that allowed us to apply OOP principles in a real-time environment. Handling state management, understanding the LibGDX continuous rendering loop, and setting up automated testing in a graphical application drastically improved our software engineering skills and teamwork dynamics.
+Developing this project was a highly rewarding experience that allowed us to apply OOP principles in a real-time environment. Handling state management, understanding the LibGDX continuous rendering loop, and setting up automated testing in a graphical application drastically improved our software engineering skills.
