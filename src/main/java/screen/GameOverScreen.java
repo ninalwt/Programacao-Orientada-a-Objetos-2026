@@ -29,6 +29,8 @@ public class GameOverScreen implements Screen {
         this.game = game;
         this.board = board;
         this.scoreManager = new ScoreManager();
+
+        game.soundManager.playDeathSound();
     }
 
     @Override

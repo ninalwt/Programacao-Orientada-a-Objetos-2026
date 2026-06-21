@@ -177,7 +177,6 @@ public class GameBoard {
         // Determine game over state and winner
         if (snakeDie && snake2Die) {
             gameOver = true;
-            soundManager.playDeathSound();
 
             // if the snakes collide, the winner is the one with the biggest score
             if (score > score2) {
