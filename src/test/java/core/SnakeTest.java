@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Unit tests for the Snake class.
  * Covers movement, growth, direction changes, and body integrity.
  */
-@ExtendWith(GdxTestExtension.class)
+@ExtendWith(GdxTestExtensionTest.class)
 class SnakeTest {
 
     private Snake snake;

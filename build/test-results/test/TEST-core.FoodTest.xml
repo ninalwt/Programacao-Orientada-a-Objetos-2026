@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="core.FoodTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2026-06-21T15:31:01.120Z" hostname="DESKTOP-0OV9J5N" time="0.098">
+  <properties/>
+  <testcase name="Respawn should never place food on top of the snake's body" classname="core.FoodTest" time="0.029"/>
+  <testcase name="Respawn with an empty snake body should not throw and should land within bounds" classname="core.FoodTest" time="0.003"/>
+  <testcase name="Food should store its initial position correctly" classname="core.FoodTest" time="0.0"/>
+  <testcase name="repetition 1 of 20" classname="core.FoodTest" time="0.003"/>
+  <testcase name="repetition 2 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 3 of 20" classname="core.FoodTest" time="0.0"/>
+  <testcase name="repetition 4 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 5 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 6 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 7 of 20" classname="core.FoodTest" time="0.002"/>
+  <testcase name="repetition 8 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 9 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 10 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 11 of 20" classname="core.FoodTest" time="0.0"/>
+  <testcase name="repetition 12 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 13 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 14 of 20" classname="core.FoodTest" time="0.002"/>
+  <testcase name="repetition 15 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 16 of 20" classname="core.FoodTest" time="0.002"/>
+  <testcase name="repetition 17 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 18 of 20" classname="core.FoodTest" time="0.001"/>
+  <testcase name="repetition 19 of 20" classname="core.FoodTest" time="0.002"/>
+  <testcase name="repetition 20 of 20" classname="core.FoodTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

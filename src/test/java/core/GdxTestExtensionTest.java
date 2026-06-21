@@ -12,9 +12,9 @@ import org.junit.jupiter.api.extension.ExtensionContext;
  * (used internally by Vector2 in some LibGDX versions, MathUtils, etc.)
  * do not throw NullPointerExceptions when running outside the real game.
  *
- * Usage: @ExtendWith(GdxTestExtension.class) on the test class.
+ * Usage: @ExtendWith(GdxTestExtensionTest.class) on the test class.
  */
-public class GdxTestExtension implements BeforeAllCallback {
+ class GdxTestExtensionTest implements BeforeAllCallback {
 
     private static boolean initialized = false;
 
