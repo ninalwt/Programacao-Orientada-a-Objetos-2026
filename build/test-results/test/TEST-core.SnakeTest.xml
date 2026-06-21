@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="core.SnakeTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-06-21T22:42:09.799Z" hostname="sero" time="0.121">
+<testsuite name="core.SnakeTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-06-21T22:55:30.295Z" hostname="sero" time="0.036">
   <properties/>
   <testcase name="Moving right should advance the head by one cell on the X axis" classname="core.SnakeTest" time="0.002"/>
-  <testcase name="Snake growing multiple times in sequence should add one segment per growth" classname="core.SnakeTest" time="0.004"/>
-  <testcase name="Snake should grow by one segment on the move right after eating" classname="core.SnakeTest" time="0.013"/>
-  <testcase name="Setting the exact opposite direction should be ignored (no 180-degree turn)" classname="core.SnakeTest" time="0.009"/>
-  <testcase name="Multiple consecutive moves should advance the head correctly" classname="core.SnakeTest" time="0.012"/>
-  <testcase name="Setting the same direction again should have no negative effect" classname="core.SnakeTest" time="0.002"/>
-  <testcase name="Snake moving up should increase Y and keep X unchanged" classname="core.SnakeTest" time="0.008"/>
+  <testcase name="Snake growing multiple times in sequence should add one segment per growth" classname="core.SnakeTest" time="0.001"/>
+  <testcase name="Snake should grow by one segment on the move right after eating" classname="core.SnakeTest" time="0.002"/>
+  <testcase name="Setting the exact opposite direction should be ignored (no 180-degree turn)" classname="core.SnakeTest" time="0.002"/>
+  <testcase name="Multiple consecutive moves should advance the head correctly" classname="core.SnakeTest" time="0.002"/>
+  <testcase name="Setting the same direction again should have no negative effect" classname="core.SnakeTest" time="0.001"/>
+  <testcase name="Snake moving up should increase Y and keep X unchanged" classname="core.SnakeTest" time="0.002"/>
   <testcase name="New snake should start with a single body segment at its initial position" classname="core.SnakeTest" time="0.004"/>
   <testcase name="Snake should preserve its old tail position correctly while growing" classname="core.SnakeTest" time="0.001"/>
-  <testcase name="Setting a perpendicular direction should change the snake's heading" classname="core.SnakeTest" time="0.003"/>
-  <testcase name="Growth flag should only apply to a single move, not persist" classname="core.SnakeTest" time="0.007"/>
-  <testcase name="Snake should keep the same length when moving without eating" classname="core.SnakeTest" time="0.004"/>
+  <testcase name="Setting a perpendicular direction should change the snake's heading" classname="core.SnakeTest" time="0.001"/>
+  <testcase name="Growth flag should only apply to a single move, not persist" classname="core.SnakeTest" time="0.001"/>
+  <testcase name="Snake should keep the same length when moving without eating" classname="core.SnakeTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

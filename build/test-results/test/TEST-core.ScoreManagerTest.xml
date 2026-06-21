@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="core.ScoreManagerTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-06-21T22:42:09.400Z" hostname="sero" time="0.228">
+<testsuite name="core.ScoreManagerTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-06-21T22:55:29.875Z" hostname="sero" time="0.396">
   <properties/>
-  <testcase name="Names shorter than or equal to 3 characters should just be uppercased" classname="core.ScoreManagerTest" time="0.024"/>
+  <testcase name="Names shorter than or equal to 3 characters should just be uppercased" classname="core.ScoreManagerTest" time="0.01"/>
   <testcase name="Scores should persist across separate ScoreManager instances (simulating app restart)" classname="core.ScoreManagerTest" time="0.003"/>
   <testcase name="getLowestHighScore should return 0 when the list is empty" classname="core.ScoreManagerTest" time="0.001"/>
-  <testcase name="High score list should stay sorted in descending order of score" classname="core.ScoreManagerTest" time="0.133"/>
-  <testcase name="getLowestHighScore should return the smallest score currently stored" classname="core.ScoreManagerTest" time="0.007"/>
-  <testcase name="isHighScore should return false for a score lower than the lowest of a full top-5 list" classname="core.ScoreManagerTest" time="0.016"/>
-  <testcase name="Only the top 5 scores should be kept after adding a 6th entry" classname="core.ScoreManagerTest" time="0.01"/>
-  <testcase name="Names longer than 3 characters should be truncated to 3 and uppercased" classname="core.ScoreManagerTest" time="0.006"/>
-  <testcase name="Any score should count as a high score when fewer than 5 entries exist" classname="core.ScoreManagerTest" time="0.003"/>
-  <testcase name="Adding a score should make it retrievable from the high score list" classname="core.ScoreManagerTest" time="0.003"/>
-  <testcase name="isHighScore should return true for a score higher than the lowest of a full top-5 list" classname="core.ScoreManagerTest" time="0.005"/>
+  <testcase name="High score list should stay sorted in descending order of score" classname="core.ScoreManagerTest" time="0.039"/>
+  <testcase name="getLowestHighScore should return the smallest score currently stored" classname="core.ScoreManagerTest" time="0.066"/>
+  <testcase name="isHighScore should return false for a score lower than the lowest of a full top-5 list" classname="core.ScoreManagerTest" time="0.083"/>
+  <testcase name="Only the top 5 scores should be kept after adding a 6th entry" classname="core.ScoreManagerTest" time="0.124"/>
+  <testcase name="Names longer than 3 characters should be truncated to 3 and uppercased" classname="core.ScoreManagerTest" time="0.002"/>
+  <testcase name="Any score should count as a high score when fewer than 5 entries exist" classname="core.ScoreManagerTest" time="0.001"/>
+  <testcase name="Adding a score should make it retrievable from the high score list" classname="core.ScoreManagerTest" time="0.004"/>
+  <testcase name="isHighScore should return true for a score higher than the lowest of a full top-5 list" classname="core.ScoreManagerTest" time="0.052"/>
   <testcase name="A fresh ScoreManager with no file should start with an empty list" classname="core.ScoreManagerTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

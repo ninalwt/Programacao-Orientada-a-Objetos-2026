@@ -7,6 +7,11 @@ application {
     mainClass = 'core.DesktopLauncher' // Tells Gradle where the main class is located
 }
 
+// Sets the working directory for the application to the root project directory, ensuring that assets and resources are correctly located when running the application
+run {
+    workingDir = rootProject.projectDir
+}
+
 repositories {
     mavenCentral()
 }
@@ -38,4 +43,12 @@ sourceSets {
 
 test {
     useJUnitPlatform()
+
+    workingDir = rootProject.projectDir
+
+    // Updates the test logging configuration to show passed, skipped, and failed test events
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
 }
