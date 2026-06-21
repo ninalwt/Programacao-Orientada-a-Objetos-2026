@@ -178,7 +178,6 @@ public class GameBoard {
         if (snakeDie && snake2Die) {
             gameOver = true;
             soundManager.playDeathSound();
-            pause(1000); // Pause for 1 second to let the sound play 
 
             // if the snakes collide, the winner is the one with the biggest score
             if (score > score2) {
@@ -302,17 +301,5 @@ public class GameBoard {
      */
     public String getWinnerMessage() {
         return winnerMessage;
-    }
-
-    /**
-     * Pauses the game for a specified duration.
-     * @param milliseconds The duration to pause in milliseconds.
-     */
-    private void pause(long milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
     }
 }
