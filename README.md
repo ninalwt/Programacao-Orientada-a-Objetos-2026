@@ -68,7 +68,9 @@ The project uses the Gradle wrapper, making it plug-and-play without manual IDE 
 
 ## 7. Problems
 During development, we encountered and solved the following main challenges:
-1. **Audio Freezing the Render Thread:** We originally used `Thread.sleep()` to wait for the death sound effect to finish before changing to the Game Over screen. This caused the LibGDX render thread to freeze. We fixed it by removing the sleep method and placing the `soundManager.playDeathSound()` call inside the constructor of the `GameOverScreen`, allowing the asynchronous audio engine to play the sound perfectly while the new screen renders.
+* **Font Rendering:** The default `FreeTypeFontGenerator` caused `NoClassDefFoundError` exceptions. We solved this by using the Hiero tool to pre-generate bitmap fonts (`.fnt` and `.png`), eliminating external dependencies.
+* **Asset Path Resolution:** When running the game via certain IDEs, the working directory couldn't find the `assets/` folder, crashing the game when loading audio. We solved this by explicitly declaring the `resources` directory and `workingDir` in the `build.gradle` configuration, ensuring cross-platform compatibility.
+* **Audio Freezing the Render Thread:** We originally used `Thread.sleep()` to wait for the death sound effect to finish before changing to the Game Over screen, which caused the LibGDX render thread to freeze. We fixed it by removing the sleep method and placing the `soundManager.playDeathSound()` call inside the constructor of the `GameOverScreen`, allowing the asynchronous audio engine to play the sound perfectly while the new screen renders.
 
 ## 8. Comments
 Developing this project was a highly rewarding experience that allowed us to apply OOP principles in a real-time environment. Handling state management, understanding the LibGDX continuous rendering loop, and setting up automated testing in a graphical application drastically improved our software engineering skills.
